@@ -1,20 +1,20 @@
 SYSWRITE = 4 #
-.global _mywrite, _myadd
+.global mywrite, myadd
 .text
-_mywrite:
+mywrite:
 	pushl %ebp
 	movl %esp,%ebp
 	pushl %ebx
 	movl 8(%ebp),%ebx
 	movl 12(%ebp),%ecx
 	movl 16(%ebp),%edx
-	movl $SYSRITE,%eax
+	movl $SYSWRITE,%eax
 	int $0x80
 	popl %ebx
 	movl %ebp,%esp
 	popl %ebp
 	ret
-_myadd:
+myadd:
 	pushl %ebp
 	movl %esp,%ebp
 	movl 8(%ebp),%eax
